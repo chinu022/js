@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Set Operations</title>
+</head>
+<body>
+  <h2>Set Operations</h2>
+
+  <button onclick="performUnion()">Union</button>
+  <button onclick="performIntersection()">Intersection</button>
+  <button onclick="performDifference()">Difference (A - B)</button>
+  <button onclick="performSymmetricDifference()">Symmetric Difference</button>
+
+  <h3>Results:</h3>
+  <p id="resultDisplay"></p>
+
+  <script>
+    // Define two example sets
+    const setA = new Set([1, 2, 3, 4, 5]);
+    const setB = new Set([4, 5, 6, 7, 8]);
+
+    // Function to display results
+    function displayResult(operation, resultSet) {
+      document.getElementById("resultDisplay").innerText = `${operation}: { ${[...resultSet].join(", ")} }`;
+    }
+
+    // 1. Union of setA and setB
+    function performUnion() {
+      const unionSet = new Set([...setA, ...setB]);
+      displayResult("Union (A ∪ B)", unionSet);
+    }
+
+    // 2. Intersection of setA and setB
+    function performIntersection() {
+      const intersectionSet = new Set([...setA].filter(x => setB.has(x)));
+      displayResult("Intersection (A ∩ B)", intersectionSet);
+    }
+
+    // 3. Difference of setA and setB (elements in A not in B)
+    function performDifference() {
+      const differenceSet = new Set([...setA].filter(x => !setB.has(x)));
+      displayResult("Difference (A - B)", differenceSet);
+    }
+
+    // 4. Symmetric Difference (elements in A or B but not both)
+    function performSymmetricDifference() {
+      const symmetricDifferenceSet = new Set([
+        ...[...setA].filter(x => !setB.has(x)),
+        ...[...setB].filter(x => !setA.has(x))
+      ]);
+      displayResult("Symmetric Difference (A △ B)", symmetricDifferenceSet);
+    }
+  </script>
+</body>
+</html>
+
+

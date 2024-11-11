@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations</title>
+</head>
+<body>
+    <h2>String Operations</h2>
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" placeholder="Type your string here" />
+    
+    <br><br>
+
+    <button onclick="reverseString()">Reverse String</button>
+    <button onclick="replaceCharacters()">Replace Characters</button>
+    <button onclick="checkPalindrome()">Check if Palindrome</button>
+
+    <p id="result"></p>
+
+    <script>
+        function reverseString() {
+            const str = document.getElementById("inputString").value;
+            const reversedStr = str.split('').reverse().join('');
+            document.getElementById("result").innerText = "Reversed String: " + reversedStr;
+        }
+
+        function replaceCharacters() {
+            const str = document.getElementById("inputString").value;
+            const charToReplace = prompt("Enter the character to replace:");
+            const replacementChar = prompt("Enter the replacement character:");
+            const replacedStr = str.split(charToReplace).join(replacementChar);
+            document.getElementById("result").innerText = "Replaced String: " + replacedStr;
+        }
+
+        function checkPalindrome() {
+            const str = document.getElementById("inputString").value;
+            const cleanedStr = str.replace(/[^A-Za-z0-9]/g, '').toLowerCase(); // Remove non-alphanumeric characters
+            const isPalindrome = cleanedStr === cleanedStr.split('').reverse().join('');
+            document.getElementById("result").innerText = isPalindrome ? "The string is a palindrome." : "The string is not a palindrome.";
+        }
+    </script>
+</body>
+</html>
+
+

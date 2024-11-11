@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Home Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      transition: background-color 0.3s ease;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+    }
+    .main-content {
+      text-align: center;
+      padding: 50px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Welcome to Our Website</h1>
+    <p>Experience the interactive background change!</p>
+  </div>
+
+  <div class="main-content" onmouseover="changeBackgroundOnHover()" onmouseout="resetBackground()">
+    <p>Hover over this section to change the background color!</p>
+  </div>
+
+  <div class="main-content">
+    <p>Focus on the input below to change the background color:</p>
+    <input type="text" placeholder="Click here..." onfocus="changeBackgroundOnFocus()" onblur="resetBackground()">
+  </div>
+
+  <script>
+    // Change background color on mouse over
+    function changeBackgroundOnHover() {
+      document.body.style.backgroundColor = "#e0f7fa"; // Light blue
+    }
+
+    // Change background color on focus
+    function changeBackgroundOnFocus() {
+      document.body.style.backgroundColor = "#fff9c4"; // Light yellow
+    }
+
+    // Reset background color to default
+    function resetBackground() {
+      document.body.style.backgroundColor = ""; // Default color
+    }
+  </script>
+</body>
+</html>
+
+

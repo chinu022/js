@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>String Comparison</title>
+</head>
+<body>
+  <h2>String Comparison Tool</h2>
+
+  <label for="string1">Enter First String:</label>
+  <input type="text" id="string1" placeholder="First String">
+  <br><br>
+
+  <label for="string2">Enter Second String:</label>
+  <input type="text" id="string2" placeholder="Second String">
+  <br><br>
+
+  <button onclick="compareStrings()">Compare Strings</button>
+
+  <h3>Results:</h3>
+  <p id="result"></p>
+
+  <script>
+    function compareStrings() {
+      const string1 = document.getElementById("string1").value;
+      const string2 = document.getElementById("string2").value;
+      let result = "";
+
+      // Method 1: Check for exact equality
+      if (string1 === string2) {
+        result += "The strings are exactly equal.<br>";
+      } else {
+        result += "The strings are not exactly equal.<br>";
+      }
+
+      // Method 2: Check for equality ignoring case
+      if (string1.toLowerCase() === string2.toLowerCase()) {
+        result += "The strings are equal (case insensitive).<br>";
+      } else {
+        result += "The strings are not equal (case insensitive).<br>";
+      }
+
+      // Method 3: Check if one string includes the other
+      if (string1.includes(string2)) {
+        result += `The first string includes the second string.<br>`;
+      } else if (string2.includes(string1)) {
+        result += `The second string includes the first string.<br>`;
+      } else {
+        result += "Neither string includes the other.<br>";
+      }
+
+      // Method 4: Compare the lengths of the strings
+      if (string1.length === string2.length) {
+        result += "Both strings have the same length.<br>";
+      } else if (string1.length > string2.length) {
+        result += "The first string is longer than the second string.<br>";
+      } else {
+        result += "The second string is longer than the first string.<br>";
+      }
+
+      // Display the results
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
+
+
